@@ -1,2 +1,2 @@
 -- AlterTable
-ALTER TABLE `produk` ADD COLUMN `deletedAt` DATETIME(3) NULL;
+ALTER TABLE `Produk` ADD COLUMN `deletedAt` DATETIME(3) NULL;
