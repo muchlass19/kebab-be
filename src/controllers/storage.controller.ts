@@ -19,7 +19,7 @@ export class StorageController {
         contentType,
       );
 
-      res.status(200).json({
+      return res.status(200).json({
         message: "Presigned URL berhasil dibuat",
         data,
       });
