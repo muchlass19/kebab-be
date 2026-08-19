@@ -1,0 +1,130 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+enum StatusPengiriman {
+  MENUNGGU_VERIFIKASI
+  DIPROSES
+  DIKIRIM
+  DITERIMA
+  DITOLAK
+}
+
+model Divisi {
+  id        Int        @id @default(autoincrement())
+  nama      String     @db.VarChar(30)
+  
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  karyawan  Karyawan[]
+}
+
+model Karyawan {
+  id        Int      @id @default(autoincrement())
+  nama      String   @db.VarChar(50)
+  divisi_id Int
+  username  String   @unique @db.VarChar(30)
+  password  String   @db.VarChar(255)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  divisi    Divisi      @relation(fields: [divisi_id], references: [id])
+  transaksi Transaksi[] @relation("PengirimanRelation")
+}
+
+model Pelanggan {
+  id        Int      @id @default(autoincrement())
+  nama      String   @db.VarChar(50)
+  username  String   @unique @db.VarChar(30)
+  password  String   @db.VarChar(255)
+  alamat    String   @db.Text
+  no_hp     String   @db.VarChar(15)
+
+  latitude  Float?
+  longitude Float?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  transaksi Transaksi[]
+  keranjang Keranjang[]
+}
+
+model Produk {
+  id           Int      @id @default(autoincrement())
+  nama         String   @db.VarChar(50)
+  harga        Float
+  stok         Int
+  gambar       String?  @db.Text
+  is_available Boolean  @default(true)
+  
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  deletedAt    DateTime?
+
+  transaksiDetail TransaksiDetail[]
+  keranjang       Keranjang[]
+}
+
+model Keranjang {
+  id           Int      @id @default(autoincrement())
+  pelanggan_id Int
+  produk_id    Int
+  qty          Int
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  pelanggan    Pelanggan @relation(fields: [pelanggan_id], references: [id], onDelete: Cascade)
+  produk       Produk    @relation(fields: [produk_id], references: [id], onDelete: Cascade)
+
+  @@unique([pelanggan_id, produk_id])
+}
+
+model Transaksi {
+  no_trx            String           @id @db.VarChar(30)
+  tanggal_trx       DateTime         @default(now())
+  status            StatusPengiriman @default(MENUNGGU_VERIFIKASI)
+  pelanggan_id      Int
+  transfer_upload   String?          @db.Text
+  status_bayar      Boolean          @default(false)
+  total_bayar       Float
+  pengiriman_id     Int?
+  jarak_km          Float?
+  waktu_berangkat   DateTime?
+  waktu_tiba_aktual DateTime?
+  estimasi_waktu    Int?
+
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+
+  pelanggan         Pelanggan         @relation(fields: [pelanggan_id], references: [id])
+  pengiriman        Karyawan?         @relation("PengirimanRelation", fields: [pengiriman_id], references: [id])
+  transaksiDetail   TransaksiDetail[]
+}
+
+model TransaksiDetail {
+  id           Int    @id @default(autoincrement())
+  no_trx       String @db.VarChar(30)
+  produk_id    Int
+  qty          Int
+  harga_satuan Float
+  subtotal     Float
+
+  transaksi    Transaksi @relation(fields: [no_trx], references: [no_trx], onDelete: Cascade)
+  produk       Produk    @relation(fields: [produk_id], references: [id])
+
+  @@map("transaksi_detail")
+}
