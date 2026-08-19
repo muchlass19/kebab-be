@@ -29,7 +29,6 @@ app.use((req, res, next) => {
       "GET, POST, PUT, DELETE, PATCH, OPTIONS",
     );
     res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-    res.header("Access-Control-Allow-Credentials", "true");
     return res.sendStatus(204);
   }
   next();
