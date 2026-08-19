@@ -41,7 +41,7 @@
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
-    "moduleResolution": "classic",
+    "moduleResolution": "node16",
     "esModuleInterop": true,
     "ignoreDeprecations": "6.0"
   }
