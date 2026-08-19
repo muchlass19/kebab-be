@@ -1,40 +1,28 @@
 {
   "compilerOptions": {
-    /* File Layout */
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
+    
+    // 1. WAJIB ADA: Lewati pengecekan library eksternal agar tidak bentrok dengan pnpm symlink
+    "skipLibCheck": true,
+
+    // 2. Jika Anda membiarkan folder Prisma di "./generated", gunakan rootDir ini:
     "rootDir": "./",
     "outDir": "./dist",
 
-    /* Environment Settings */
-    "module": "nodenext",
-    "target": "es2023",
-    "types": ["node"],
-
-    /* Other Outputs */
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
-
-    /* Stricter Typechecking Options */
-    "strict": true,
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-
-    /* Style Options */
-    "noImplicitReturns": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "noFallthroughCasesInSwitch": true,
-
-    /* Recommended Options */
-    "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force",
-    "skipLibCheck": true,
-    
-    /* Bundler & Extension Handling */
     "rewriteRelativeImportExtensions": true,
     "allowImportingTsExtensions": true,
+
+    // ❌ HAPUS BARIS INI JIKA ADA:
+    // "types": ["node"]  <-- Ini yang memicu error jika resolusinya gagal di Vercel
+    
+    // ❌ HAPUS BARIS INI JIKA ADA:
+    // "typeRoots": [...] <-- Jangan batasi ini agar tsc mencari otomatis ke global pnpm node_modules
   },
-  "include": ["src/**/*"]
+  "include": [
+    "src/**/*",
+    "generated/**/*"
+  ]
 }
