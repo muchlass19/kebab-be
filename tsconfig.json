@@ -7,7 +7,7 @@
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "commonjs",
+    "module": "node20",
     "target": "es2023",
     "types": ["node"],
     // For nodejs:
@@ -41,7 +41,7 @@
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
-    "moduleResolution": "node16",
+    "moduleResolution": "node20",
     "esModuleInterop": true,
     "ignoreDeprecations": "6.0"
   }
