@@ -15,7 +15,7 @@ export class ProdukService {
 
   getAll = async () => {
     const data = await this.repo.getAll();
-    const products: ProductData[] = data.map((product) => ({
+    const products: ProductData[] = data.map((product: any) => ({
       id: product.id,
       name: product.nama,
       price: product.harga,
@@ -90,7 +90,7 @@ export class ProdukService {
 
   findAllProducts = async () => {
     const data = await this.repo.getAll();
-    const products = data.map((product) => ({
+    const products = data.map((product: any) => ({
       id: product.id,
       name: product.nama,
       image: getStorageUrl(product.gambar),

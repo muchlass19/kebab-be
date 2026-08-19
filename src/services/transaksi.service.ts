@@ -74,24 +74,24 @@ export class TransaksiService {
 
   getWaitingVerified = async () => {
     const data = await this.repo.getWaitingVerified();
-    const totalQty = data.reduce((total, trx) => {
+    const totalQty = data.reduce((total: number, trx: any) => {
       return (
         total +
-        trx.transaksiDetail.reduce((subtotal, detail) => {
+        trx.transaksiDetail.reduce((subtotal: number, detail: any) => {
           return subtotal + detail.qty;
         }, 0)
       );
     }, 0);
 
-    const totalBayar = data.reduce((total, trx) => {
+    const totalBayar = data.reduce((total: number, trx: any) => {
       return total + trx.total_bayar;
     }, 0);
-    const transactions = data.map((trx) => {
+    const transactions = data.map((trx: any) => {
       return {
         invoiceNumber: trx.no_trx,
         date: trx.tanggal_trx.toISOString(),
         customerName: trx.pelanggan.nama || "Pelanggan Tidak diketahui",
-        products: trx.transaksiDetail.map((detail) => ({
+        products: trx.transaksiDetail.map((detail: any) => ({
           name: detail.produk.nama,
           qty: detail.qty,
           price: detail.harga_satuan,
@@ -114,24 +114,24 @@ export class TransaksiService {
     endDate.setHours(23, 59, 59, 999);
 
     const data = await this.repo.getByDateRange(startDate, endDate);
-    const totalQty = data.reduce((total, trx) => {
+    const totalQty = data.reduce((total: number, trx: any) => {
       return (
         total +
-        trx.transaksiDetail.reduce((subtotal, detail) => {
+        trx.transaksiDetail.reduce((subtotal: number, detail: any) => {
           return subtotal + detail.qty;
         }, 0)
       );
     }, 0);
 
-    const totalBayar = data.reduce((total, trx) => {
+    const totalBayar = data.reduce((total: number, trx: any) => {
       return total + trx.total_bayar;
     }, 0);
-    const transactions = data.map((trx) => {
+    const transactions = data.map((trx: any) => {
       return {
         invoiceNumber: trx.no_trx,
         date: trx.tanggal_trx.toISOString(),
         customerName: trx.pelanggan.nama || "Pelanggan Tidak diketahui",
-        products: trx.transaksiDetail.map((detail) => ({
+        products: trx.transaksiDetail.map((detail: any) => ({
           name: detail.produk.nama,
           qty: detail.qty,
           price: detail.harga_satuan,
@@ -153,7 +153,7 @@ export class TransaksiService {
         invoiceNumber: data?.no_trx,
         date: data?.tanggal_trx.toISOString(),
         customerName: data?.pelanggan.nama || "Pelanggan Tidak diketahui",
-        products: data?.transaksiDetail.map((detail) => ({
+        products: data?.transaksiDetail.map((detail: any) => ({
           name: detail.produk.nama,
           qty: detail.qty,
           price: detail.harga_satuan,
@@ -184,7 +184,7 @@ export class TransaksiService {
         date: data?.tanggal_trx.toISOString(),
         customerName: data?.pelanggan.nama || "Pelanggan Tidak diketahui",
         customerAddress: data?.pelanggan.alamat || "Alamat Pelanggan Tidak diketahui",
-        products: data?.transaksiDetail.map((detail) => ({
+        products: data?.transaksiDetail.map((detail: any) => ({
           name: detail.produk.nama,
           qty: detail.qty,
           price: detail.harga_satuan,
@@ -212,24 +212,24 @@ export class TransaksiService {
       endDate,
       status,
     );
-    const totalQty = data.reduce((total, trx) => {
+    const totalQty = data.reduce((total: number, trx: any) => {
       return (
         total +
-        trx.transaksiDetail.reduce((subtotal, detail) => {
+        trx.transaksiDetail.reduce((subtotal: number, detail: any) => {
           return subtotal + detail.qty;
         }, 0)
       );
     }, 0);
 
-    const totalBayar = data.reduce((total, trx) => {
+    const totalBayar = data.reduce((total: number, trx: any) => {
       return total + trx.total_bayar;
     }, 0);
-    const transactions = data.map((trx) => {
+    const transactions = data.map((trx: any) => {
       return {
         invoiceNumber: trx.no_trx,
         date: trx.tanggal_trx.toISOString(),
         customerName: trx.pelanggan.nama || "Pelanggan Tidak diketahui",
-        products: trx.transaksiDetail.map((detail) => ({
+        products: trx.transaksiDetail.map((detail: any) => ({
           name: detail.produk.nama,
           qty: detail.qty,
           price: detail.harga_satuan,
@@ -246,7 +246,7 @@ export class TransaksiService {
 
   getTransactionPengirimanByStatus = async (status: StatusPengiriman) => {
     const data = await this.repo.getTransactionPengiriman(status);
-    const transactions = data.map((transaction) => ({
+    const transactions = data.map((transaction: any) => ({
       invoiceNumber: transaction.no_trx,
       customerName: transaction.pelanggan.nama,
       date: transaction.tanggal_trx.toISOString(),
@@ -294,7 +294,7 @@ export class TransaksiService {
         invoiceNumber: data?.no_trx,
         date: data?.tanggal_trx.toISOString(),
         customerName: data?.pelanggan.nama || "Pelanggan Tidak diketahui",
-        products: data?.transaksiDetail.map((detail) => ({
+        products: data?.transaksiDetail.map((detail: any) => ({
           name: detail.produk.nama,
           qty: detail.qty,
           price: detail.harga_satuan,
@@ -323,7 +323,7 @@ export class TransaksiService {
         invoiceNumber: data?.no_trx,
         date: data?.tanggal_trx.toISOString(),
         customerName: data?.pelanggan.nama || "Pelanggan Tidak diketahui",
-        products: data?.transaksiDetail.map((detail) => ({
+        products: data?.transaksiDetail.map((detail: any) => ({
           name: detail.produk.nama,
           qty: detail.qty,
           price: detail.harga_satuan,
@@ -341,7 +341,7 @@ export class TransaksiService {
   getTransactionByPelanggan = async (pelanggan_id: number) => {
     const data = await this.repo.getTransactionByPelanggan(pelanggan_id);
 
-    const transactions = data.map((transaction) => {
+    const transactions = data.map((transaction: any) => {
       const estimasi =
         transaction.waktu_berangkat && transaction.estimasi_waktu
           ? hitungEstimasiTiba(
@@ -357,7 +357,7 @@ export class TransaksiService {
         status: transaction.status,
         estimationDate: estimasi.tanggalEstimasi,
         estimationTime: estimasi.waktuEstimasi,
-        products: transaction.transaksiDetail.map((detail) => ({
+        products: transaction.transaksiDetail.map((detail: any) => ({
           name: detail.produk.nama,
           image: getStorageUrl(detail.produk.gambar),
           qty: detail.qty,

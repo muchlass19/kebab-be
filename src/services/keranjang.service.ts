@@ -15,7 +15,7 @@ export class KeranjangService {
       address: user?.alamat,
     };
 
-    const products = keranjangs.map((keranjang) => {
+    const products = keranjangs.map((keranjang: any) => {
       return {
         id: keranjang.produk.id,
         image: getStorageUrl(keranjang.produk.gambar),

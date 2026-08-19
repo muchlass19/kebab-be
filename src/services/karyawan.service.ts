@@ -13,7 +13,7 @@ export class KaryawanService {
 
   getAll = async () => {
     const data = await this.repo.getAll();
-    const employees: EmployeeData[] = data.map((employee) => ({
+    const employees: EmployeeData[] = data.map((employee: any) => ({
       id: employee.id,
       name: employee.nama,
       role: employee.divisi.nama,
