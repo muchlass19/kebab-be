@@ -1,6 +1,6 @@
 import { KeranjangRepository } from "../repositories/keranjang.repository.ts";
 import { PelangganRepository } from "../repositories/pelanggan.repository.ts";
-import { getStorageUrl } from "../utils/storage";
+import { getStorageUrl } from "../utils/storage.ts";
 
 export class KeranjangService {
   private repo = new KeranjangRepository();

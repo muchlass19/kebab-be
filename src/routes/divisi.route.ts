@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { DivisiController } from "../controllers/divisi.controller.ts";
-import { AuthMiddleware } from "../middlewares/auth.middleware";
+import { AuthMiddleware } from "../middlewares/auth.middleware.ts";
 
 const router: Router = Router();
 const controller = new DivisiController();

@@ -1,8 +1,8 @@
-import { StatusPengiriman } from "../../generated/prisma/enums";
+import { StatusPengiriman } from "../../generated/prisma/enums.ts";
 import { TransaksiRepository } from "../repositories/transaksi.repository.ts";
-import type { TransaksiItem } from "../types/transaksi.type";
-import { hitungEstimasiTiba, hitungJarak } from "../utils/osrm";
-import { getStorageUrl } from "../utils/storage";
+import type { TransaksiItem } from "../types/transaksi.type.ts";
+import { hitungEstimasiTiba, hitungJarak } from "../utils/osrm.ts";
+import { getStorageUrl } from "../utils/storage.ts";
 
 export class TransaksiService {
   private repo = new TransaksiRepository();

@@ -1,6 +1,6 @@
 import { prisma } from "../lib/prisma.ts";
-import { StatusPengiriman } from "../../generated/prisma/enums";
-import type { TransaksiItem } from "../types/transaksi.type";
+import { StatusPengiriman } from "../../generated/prisma/enums.ts";
+import type { TransaksiItem } from "../types/transaksi.type.ts";
 
 export class TransaksiRepository {
   create = (

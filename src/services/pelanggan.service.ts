@@ -1,5 +1,5 @@
 import { PelangganRepository } from "../repositories/pelanggan.repository.ts";
-import { hashPassword } from "../utils/password";
+import { hashPassword } from "../utils/password.ts";
 
 export class PelangganService {
   private repo = new PelangganRepository();
