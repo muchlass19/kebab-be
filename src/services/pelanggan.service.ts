@@ -1,4 +1,4 @@
-import { PelangganRepository } from "../repositories/pelanggan.repository";
+import { PelangganRepository } from "../repositories/pelanggan.repository.ts";
 import { hashPassword } from "../utils/password";
 
 export class PelangganService {

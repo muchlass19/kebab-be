@@ -2,14 +2,14 @@ import express from "express";
 import type { Express } from "express";
 import cors from "cors";
 
-import authRoute from "./routes/auth.route";
-import divisiRoute from "./routes/divisi.route";
-import karyawanRoute from "./routes/karyawan.route";
-import produkRoute from "./routes/produk.route";
-import pelangganRoute from "./routes/pelanggan.route";
-import keranjangRoute from "./routes/keranjang.route";
-import transaksiRoute from "./routes/transaksi.route";
-import storageRoute from "./routes/storage.route";
+import authRoute from "./routes/auth.route.ts";
+import divisiRoute from "./routes/divisi.route.ts";
+import karyawanRoute from "./routes/karyawan.route.ts";
+import produkRoute from "./routes/produk.route.ts";
+import pelangganRoute from "./routes/pelanggan.route.ts";
+import keranjangRoute from "./routes/keranjang.route.ts";
+import transaksiRoute from "./routes/transaksi.route.ts";
+import storageRoute from "./routes/storage.route.ts";
 
 const app: Express = express();
 

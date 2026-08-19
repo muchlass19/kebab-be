@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { DivisiController } from "../controllers/divisi.controller";
+import { DivisiController } from "../controllers/divisi.controller.ts";
 import { AuthMiddleware } from "../middlewares/auth.middleware";
 
 const router: Router = Router();

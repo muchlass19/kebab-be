@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { ProdukController } from "../controllers/produk.controller";
+import { ProdukController } from "../controllers/produk.controller.ts";
 import { AuthMiddleware } from "../middlewares/auth.middleware";
 
 const router: Router = Router();

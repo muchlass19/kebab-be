@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
-import { KeranjangService } from "../services/keranjang.service";
-import type { AuthRequest } from "../middlewares/auth.middleware";
+import { KeranjangService } from "../services/keranjang.service.ts";
+import type { AuthRequest } from "../middlewares/auth.middleware.ts";
 
 const keranjangService = new KeranjangService();
 

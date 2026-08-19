@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { PelangganController } from "../controllers/pelanggan.controller";
+import { PelangganController } from "../controllers/pelanggan.controller.ts";
 import { AuthMiddleware } from "../middlewares/auth.middleware";
 
 const router: Router = Router();

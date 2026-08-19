@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { StorageController } from "../controllers/storage.controller";
+import { StorageController } from "../controllers/storage.controller.ts";
 
 const router: Router = Router();
 const controller = new StorageController();

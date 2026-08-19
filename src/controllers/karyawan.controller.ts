@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import { KaryawanService } from "../services/karyawan.service";
+import { KaryawanService } from "../services/karyawan.service.ts";
 
 const karyawanService = new KaryawanService();
 

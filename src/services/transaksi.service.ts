@@ -1,5 +1,5 @@
 import { StatusPengiriman } from "../../generated/prisma/enums";
-import { TransaksiRepository } from "../repositories/transaksi.repository";
+import { TransaksiRepository } from "../repositories/transaksi.repository.ts";
 import type { TransaksiItem } from "../types/transaksi.type";
 import { hitungEstimasiTiba, hitungJarak } from "../utils/osrm";
 import { getStorageUrl } from "../utils/storage";

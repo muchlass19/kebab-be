@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import { StorageService } from "../services/storage.service";
+import { StorageService } from "../services/storage.service.ts";
 
 const storageService = new StorageService();
 

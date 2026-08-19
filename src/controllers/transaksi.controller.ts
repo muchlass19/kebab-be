@@ -1,7 +1,7 @@
 import type { Response } from "express";
-import type { AuthRequest } from "../middlewares/auth.middleware";
-import { TransaksiService } from "../services/transaksi.service";
-import { KeranjangService } from "../services/keranjang.service";
+import type { AuthRequest } from "../middlewares/auth.middleware.ts";
+import { TransaksiService } from "../services/transaksi.service.ts";
+import { KeranjangService } from "../services/keranjang.service.ts";
 
 const transaksiService = new TransaksiService();
 const keranjangService = new KeranjangService();

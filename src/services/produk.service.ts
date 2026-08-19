@@ -1,4 +1,4 @@
-import { ProdukRepository } from "../repositories/produk.repository";
+import { ProdukRepository } from "../repositories/produk.repository.ts";
 import { getStorageUrl } from "../utils/storage";
 
 export interface ProductData {

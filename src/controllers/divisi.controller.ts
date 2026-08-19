@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import { DivisiService } from "../services/divisi.service";
+import { DivisiService } from "../services/divisi.service.ts";
 
 const divisiService = new DivisiService();
 

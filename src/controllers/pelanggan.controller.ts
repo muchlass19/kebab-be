@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
-import { PelangganService } from "../services/pelanggan.service";
-import type { AuthRequest } from "../middlewares/auth.middleware";
+import { PelangganService } from "../services/pelanggan.service.ts";
+import type { AuthRequest } from "../middlewares/auth.middleware.ts";
 
 const pelangganService = new PelangganService();
 export class PelangganController {

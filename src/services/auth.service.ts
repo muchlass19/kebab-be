@@ -1,7 +1,7 @@
-import { signToken } from "../utils/jwt";
-import { KaryawanRepository } from "../repositories/karyawan.repository";
-import { comparePassword, hashPassword } from "../utils/password";
-import { PelangganRepository } from "../repositories/pelanggan.repository";
+import { signToken } from "../utils/jwt.ts";
+import { KaryawanRepository } from "../repositories/karyawan.repository.ts";
+import { comparePassword, hashPassword } from "../utils/password.ts";
+import { PelangganRepository } from "../repositories/pelanggan.repository.ts";
 
 export class AuthService {
   private repoKaryawan = new KaryawanRepository();

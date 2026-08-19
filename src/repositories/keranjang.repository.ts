@@ -1,4 +1,4 @@
-import { prisma } from "../lib/prisma";
+import { prisma } from "../lib/prisma.ts";
 
 export class KeranjangRepository {
   get = (pelanggan_id: number) => {

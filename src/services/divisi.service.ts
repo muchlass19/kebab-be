@@ -1,4 +1,4 @@
-import { DivisiRepository } from "../repositories/divisi.repository";
+import { DivisiRepository } from "../repositories/divisi.repository.ts";
 
 export interface DivisiDropdown {
   label: string;

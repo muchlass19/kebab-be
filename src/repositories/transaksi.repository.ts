@@ -1,4 +1,4 @@
-import { prisma } from "../lib/prisma";
+import { prisma } from "../lib/prisma.ts";
 import { StatusPengiriman } from "../../generated/prisma/enums";
 import type { TransaksiItem } from "../types/transaksi.type";
 

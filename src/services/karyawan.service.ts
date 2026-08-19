@@ -1,4 +1,4 @@
-import { KaryawanRepository } from "../repositories/karyawan.repository";
+import { KaryawanRepository } from "../repositories/karyawan.repository.ts";
 import { hashPassword } from "../utils/password";
 
 export interface EmployeeData {
